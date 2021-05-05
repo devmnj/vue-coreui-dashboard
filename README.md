@@ -15,5 +15,5 @@ This is a covid tracker app developed using
 [vercel](https://covidlive.vercel.app/#/dashboard/)
 
 # More Tutorials
-
+More tutorials and guides on Vuejs can be found @ my blog
 [blog](https://developermblog.wordpress.com/)
