@@ -1,7 +1,7 @@
 <template>
   <CFooter :fixed="false">
     <div>
-      <a href="https://codevelopermblog.wordpress.com" target="_blank">DeveloperMBlog</a>
+      <a href="https://developrmblog.wordpress.com" target="_blank">DeveloperMBlog</a>
       <span class="ml-1">&copy; {{new Date().getFullYear()}} creativeLabs.</span>
     </div>
     <div class="mfs-auto">

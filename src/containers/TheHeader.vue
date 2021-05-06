@@ -34,7 +34,7 @@
     
       <CHeaderNavItem class="d-md-down-none mx-2">
          
-        <a href='https://github.com/manojap'>
+        <a href='https://github.com/manojap/vue-coreui-dashboard'>
           <CIcon name="cib-github"/></a>
      
       </CHeaderNavItem>
