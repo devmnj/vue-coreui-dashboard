@@ -134,7 +134,7 @@
 
 </CCardGroup>
       <CCol sm="12">
-        <CTableWrapper
+        <FTable
           :items="getShuffledUsersData()"
           hover
           striped
@@ -158,7 +158,7 @@
 import StateChart from "./charts/StateChart";
 import WidgetsDropdown from "./widgets/WidgetsDropdown";
 import WidgetsBrand from "./widgets/WidgetsBrand";
-import CTableWrapper from "./base/Table.vue";
+import FTable from "./custom_components/FTable.vue";
 // import CChartLineExample from './charts/CChartLineExample'
 import { CChartDoughnut ,CChartPie} from '@coreui/vue-chartjs'
 export default {
@@ -167,7 +167,7 @@ export default {
     StateChart,
     WidgetsDropdown,
     WidgetsBrand,
-    CTableWrapper,
+    FTable,
     CChartDoughnut ,
     CChartPie
     // CChartLineExample,

@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 const state = {
   sidebarShow: 'responsive',
-  sidebarMinimize: false,
+  sidebarMinimize: true,
   data: {},
   localData: data,
   data2: {},

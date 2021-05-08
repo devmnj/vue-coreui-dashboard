@@ -8,7 +8,7 @@
     <CSidebarBrand class="d-md-down-none" to="/">
                   <CIcon :height="42" :content="$options.freeSet['cilHospital']"
                   size="custom-size" 
-                   class="c-sidebar-brand-full"                    
+                  class="c-sidebar-brand-full"                    
                   />
 
       <!-- <CIcon 
@@ -18,13 +18,17 @@
      
         viewBox="0 0 556 134"  
       /> -->
-      <CIcon  
+      <!-- <CIcon  
         class="c-sidebar-brand-minimized" 
         name="logo" 
         size="custom-size"         
         :height="35" 
         viewBox="0 0 110 134"
-      />
+      /> -->
+       <CIcon :height="42" :content="$options.freeSet['cilHospital']"
+                  size="custom-size" 
+                   class="c-sidebar-brand-minimized"                   
+                  />
     </CSidebarBrand>
 
     <CRenderFunction flat :content-to-render="$options.nav"/>
