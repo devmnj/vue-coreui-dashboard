@@ -1,6 +1,6 @@
 <template>
   <div>
-    <WidgetsDropdown
+    <!-- <WidgetsDropdown
       :header1="String(get_status['act'])"
       title1="Active"
       :header2="String(get_status['rec'])"
@@ -13,10 +13,115 @@
       :dataPoints2="get_status['clist']"
       :dataPoints3="get_status['rlist']"
       :dataPoints4="get_status['dlist']"
-    />
+    /> -->
+    <CCard>
+  
+      <CCardBody>
+        <CRow>
+          <CCol>
+            <FlipCard height="150px" width="250px" frontCardColor="#fac60a">
+              <template v-slot:front>
+                <h4 class="mt-3 heading">Active Patients</h4>
+                <div class="Asize">
+                  {{ get_status["act"] }}
+                </div>
+              </template>
 
+              <template v-slot:back>
+                <div>
+                  <CChartLineSimple
+                    class="mt-3"
+                    style="height: 70px"
+                    background-color="rgba(255,255,255,.2)"
+                    :data-points="get_status['alist']"
+                    :options="{ elements: { line: { borderWidth: 2.5 } } }"
+                    point-hover-background-color="warning"
+                    label="Active"
+                    labels=""
+                  />
+                </div>
+              </template>
+            </FlipCard>
+          </CCol>
+          <CCol>
+            <FlipCard height="150px" width="250px" frontCardColor="#ff80c0">
+              <template v-slot:front>
+                <h4 class="mt-3 heading">Confirmed Patients</h4>
+                <div class="Asize">
+                  {{ get_status["con"] }}
+                </div>
+              </template>
 
-    
+              <template v-slot:back>
+                <div>
+                  <CChartLineSimple
+                    class="mt-3"
+                    style="height: 70px"
+                    background-color="rgba(255,255,255,.2)"
+                    :data-points="get_status['clist']"
+                    :options="{ elements: { line: { borderWidth: 2.5 } } }"
+                    point-hover-background-color="warning"
+                    label="Active"
+                    labels=""
+                  />
+                </div>
+              </template>
+            </FlipCard>
+          </CCol>
+          <CCol>
+            <FlipCard height="150px" width="250px" frontCardColor="#f54747">
+              <template v-slot:front>
+                <h4 class="mt-3 heading">Recovered Patients</h4>
+                <div class="Asize">
+                  {{ get_status["rec"] }}
+                </div>
+              </template>
+
+              <template v-slot:back>
+                <div>
+                  <CChartLineSimple
+                    class="mt-3"
+                    style="height: 70px"
+                    background-color="rgba(255,255,255,.2)"
+                    :data-points="get_status['rlist']"
+                    :options="{ elements: { line: { borderWidth: 2.5 } } }"
+                    point-hover-background-color="warning"
+                    label="Active"
+                    labels=""
+                  />
+                </div>
+              </template>
+            </FlipCard>
+          </CCol>
+          <CCol>
+            <FlipCard height="150px" width="250px" frontCardColor= #4750f5 >
+              <template v-slot:front>
+                <h4 class="mt-3 heading">Deceased Patients</h4>
+                <div class="Asize">
+                  {{ get_status["dec"] }}
+                </div>
+              </template>
+
+              <template v-slot:back>
+                <div>
+                  <CChartLineSimple
+                    class="mt-3"
+                    style="height: 70px"
+                    background-color="rgba(255,255,255,.2)"
+                    :data-points="get_status['dlist']"
+                    :options="{ elements: { line: { borderWidth: 2.5 } } }"
+                    point-hover-background-color="warning"
+                    label="Active"
+                    labels=""
+                  />
+                </div>
+              </template>
+            </FlipCard>
+          </CCol>
+        </CRow>
+      </CCardBody>
+    </CCard>
+
     <CCard>
       <CCardBody>
         <CRow>
@@ -38,64 +143,43 @@
           style="height: 300px; margin-top: 40px"
         />
       </CCardBody>
-     
     </CCard>
     <!-- <WidgetsBrand /> -->
-     <CCardGroup columns class="card-columns cols-2">
-          <CCard>
+    <CCardGroup columns class="card-columns cols-2">
+      <CCard>
         <CCardHeader>
-          
           <CCol>Infected V/s Recoverd </CCol>
-          
-          
         </CCardHeader>
         <CCardBody>
           <CChartDoughnut
-      :datasets=" [
-        {
-          backgroundColor: [
-            '#41B883',
-            '#E46651',
-            '#00D8FF',
-            '#DD1B16'
-          ],
-          data: [get_status['con'],get_status['rec']]
-        }
-      ]"
-      :labels="[ 'Positive', 'Recovered' ]"
-       />
+            :datasets="[
+              {
+                backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+                data: [get_status['con'], get_status['rec']],
+              },
+            ]"
+            :labels="['Positive', 'Recovered']"
+          />
         </CCardBody>
       </CCard>
-     <CCard>
-        <CCardHeader>
-         Infectted V/s Deceased
-          
-        </CCardHeader>
+      <CCard>
+        <CCardHeader> Infectted V/s Deceased </CCardHeader>
         <CCardBody>
           <CChartPie
-      :datasets=" [
-        {
-          backgroundColor: [
-            '#41B883',
-            '#E46651',
-            '#00D8FF',
-            '#DD1B16'
-          ],
-          data: [get_status['con'],get_status['dec']]
-        }
-      ]"
-      :labels="[ 'Positive', 'Deaceased' ]"
-       />
+            :datasets="[
+              {
+                backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+                data: [get_status['con'], get_status['dec']],
+              },
+            ]"
+            :labels="['Positive', 'Deaceased']"
+          />
         </CCardBody>
       </CCard>
+    </CCardGroup>
 
-      
-
-</CCardGroup>
-
-      <CCol
-        CCol sm="12">
-        <!-- <CTableWrapper
+    <CCol CCol sm="12">
+      <!-- <CTableWrapper
           :items="getShuffledUsersData()"
           hover
           striped
@@ -105,20 +189,17 @@
           dark
           caption="District infection Statistics"
         /> -->
-         <FTable
-          :items="getShuffledUsersData()"
-          hover
-          striped
-          border
-          small
-          fixed
-          dark
-          caption="District infection Statistics"
-        />
-      </CCol>
-   
-    
-       
+      <FTable
+        :items="getShuffledUsersData()"
+        hover
+        striped
+        border
+        small
+        fixed
+        dark
+        caption="District infection Statistics"
+      />
+    </CCol>
   </div>
 </template>
 
@@ -127,9 +208,12 @@ import StateChart from "./charts/StateChart";
 import WidgetsDropdown from "./widgets/WidgetsDropdown";
 import WidgetsBrand from "./widgets/WidgetsBrand";
 import CTableWrapper from "./base/Table.vue";
-import FTable from './custom_components/FTable.vue'
+import FTable from "./custom_components/FTable.vue";
+import FlipCard from "./custom_components/FlipCard.vue";
+import { CChartLineSimple } from "../views/charts/index.js";
+
 // import CChartLineExample from './charts/CChartLineExample'
-import { CChartDoughnut ,CChartPie} from '@coreui/vue-chartjs'
+import { CChartDoughnut, CChartPie } from "@coreui/vue-chartjs";
 export default {
   name: "StateDashBoard",
 
@@ -138,22 +222,24 @@ export default {
     WidgetsDropdown,
     WidgetsBrand,
     CTableWrapper,
-    CChartDoughnut ,
+    CChartDoughnut,
+    CChartLineSimple,
+
     CChartPie,
-    FTable
+    FTable,
+    FlipCard,
     // CChartLineExample,
   },
   data() {
     return {
       stateNames: [],
-      selected: "Month",     
+      selected: "Month",
       data: [],
-      don_searchText:'',
-      pie_searchText:'',
-     
+      don_searchText: "",
+      pie_searchText: "",
     };
   },
-   
+
   methods: {
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -183,56 +269,77 @@ export default {
     },
   },
   created() {
-     this.$store.dispatch('FETCH_DATA')  
+    this.$store.dispatch("FETCH_DATA");
     console.log("Dashboard Created");
   },
   mounted() {
-  
-    this.stateNames = this.$store.getters.GET_STATES;     
-    this.data = this.$store.state.data 
-    this.$store.state.title="ALL INDIA";
+    this.stateNames = this.$store.getters.GET_STATES;
+    this.data = this.$store.state.data;
+    this.$store.state.title = "ALL INDIA";
     //console.log(this.stateNames);
     console.log("Dashboard Mounted[State]");
   },
 
   computed: {
-     
     get_status() {
       var a = 0;
       var c = 0;
-      var r = 0;      
+      var r = 0;
       var d = 0;
       var _a = [];
       var _c = [];
-      var _r = [];      
+      var _r = [];
       var _d = [];
-      var coll=[];
-      this.stateNames.forEach((sname)=>{
-      var dist= Object.entries(this.data[sname]['districtData'])
-          a=c=r=d=0;
-           dist.forEach((el)=>{
-           a+=el[1]["active"];
-           c+=el[1]["confirmed"];
-           r+=el[1]["recovered"];
-           d+=el[1]["deceased"];
-           });
-          _a.push(a);
-          _c.push(c);
-          _r.push(r);
-          _d.push(d);
+      var coll = [];
+      this.stateNames.forEach((sname) => {
+        var dist = Object.entries(this.data[sname]["districtData"]);
+        a = c = r = d = 0;
+        dist.forEach((el) => {
+          a += el[1]["active"];
+          c += el[1]["confirmed"];
+          r += el[1]["recovered"];
+          d += el[1]["deceased"];
+        });
+        _a.push(a);
+        _c.push(c);
+        _r.push(r);
+        _d.push(d);
 
-          coll.push({
-            'district': sname,
-            'active': a,
-            'confirmed':c,
-            'recovered':r,
-            'deceased': d,
-          });
-       });
-        this.stateList =  coll;
-      return { act: a, con: c, rec: r, dec: d,clist:_c,alist:_a,rlist:_r,dlist:_d,coll:coll};
+        coll.push({
+          district: sname,
+          active: a,
+          confirmed: c,
+          recovered: r,
+          deceased: d,
+        });
+      });
+      this.stateList = coll;
+      return {
+        act: a,
+        con: c,
+        rec: r,
+        dec: d,
+        clist: _c,
+        alist: _a,
+        rlist: _r,
+        dlist: _d,
+        coll: coll,
+      };
     },
-     
   },
 };
 </script>
+<style>
+.box {
+  margin-top: 5px;
+}
+.heading {
+  font-size:19px;
+  color:#0000a0;
+
+}
+.Asize {
+  font-size:45px;
+  
+}
+</style>
