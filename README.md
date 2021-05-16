@@ -16,4 +16,4 @@ This is a covid tracker app developed using
 
 # More Tutorials
 More tutorials and guides on Vuejs can be found @ my blog
-[blog](https://developermblog.wordpress.com/)
+[blog](https://javascriptsu.wordpress.com/)
